@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STAT 1000Q -- Exam 3 Master Guide</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background:#fdf6f1; color:#24323a; }
+    .container { max-width: 900px; margin: auto; }
+    h1 { text-align:center; }
+    h2 { margin-top:30px; }
+    h3 { margin-top:20px; }
+    .card { background:#ffffff; padding:20px; border-radius:14px; margin-top:20px; box-shadow: 0 8px 18px rgba(0,0,0,0.06);}  
+    .formula { background:#fff8f3; padding:10px; border-left:4px solid #f5b7a6; margin:10px 0; }
+    ul { margin-top:10px; }
+    .tabs { margin-top: 16px; border: 1px solid #e9eef3; border-radius: 14px; overflow: hidden; background: #ffffff; box-shadow: 0 6px 14px rgba(0,0,0,0.05);}  
+    .tab-buttons { display: flex; gap: 0; border-bottom: 1px solid #f3e5dc; background: #fff2ea; }
+    .tab-btn { flex: 1; padding: 12px 14px; border: 0; background: transparent; cursor: pointer; font-weight: 600; color: #6b7c8a; transition: all 0.2s ease; }
+    .tab-btn:hover { background: #ffe8dc; color:#e48a6c; }
+    .tab-btn.active { background: #ffffff; color: #e48a6c; box-shadow: inset 0 -2px 0 #e48a6c; }
+    .tab-panel { display: none; padding: 16px; background: #ffffff; }
+    .tab-panel.active { display: block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>STAT 1000Q -- Exam 3 Master Guide</h1>
+    <p style="text-align:center;">Focused only on Chapter 5 and Chapter 6</p>
+
+    <div class="card">
+      <h2>Chapter 5 — Sampling Distribution</h2>
+
+      <h3>Core Symbols</h3>
+      <div class="formula">μ = population mean</div>
+      <div class="formula">x̄ = sample mean</div>
+      <div class="formula">μₓ̄ = mean of sampling distribution</div>
+      <div class="formula">σₓ̄ = standard error</div>
+      <div class="formula">σ = population standard deviation</div>
+
+      <h3>CLT</h3>
+      <div class="formula">n ≥ 30</div>
+
+      <div class="tabs">
+        <div class="tab-buttons" data-tab-group="ch5">
+          <button class="tab-btn active" data-target="ch5-reminders">Key Reminders</button>
+          <button class="tab-btn" data-target="ch5-conditions">Conditions</button>
+        </div>
+        <div class="tab-panel active" id="ch5-reminders">
+          <ul>
+            <li>Always draw the bell curve</li>
+            <li>Check if population is normal or n ≥ 30</li>
+          </ul>
+        </div>
+        <div class="tab-panel" id="ch5-conditions">
+          <ul>
+            <li>np ≥ 15</li>
+            <li>n(1 − p) ≥ 15</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Summary of Core Problem Types</h3>
+      <ul>
+        <li>Symbol identification</li>
+        <li>Sampling distribution of x̄</li>
+        <li>X vs x̄</li>
+        <li>Probability with x̄</li>
+        <li>Sampling distribution of p̂</li>
+        <li>Probability with p̂</li>
+        <li>Sample size conditions</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Chapter 6 — Confidence Intervals</h2>
+
+      <h3>Confidence Levels</h3>
+      <ul>
+        <li>90% → α = 0.10</li>
+        <li>95% → α = 0.05</li>
+        <li>98% → α = 0.02</li>
+        <li>99% → α = 0.01</li>
+      </ul>
+
+      <h3>z* Values</h3>
+      <ul>
+        <li>90% → 1.645 (≈ 1.65)</li>
+        <li>95% → 1.960 (≈ 1.96)</li>
+        <li>98% → 2.326 (≈ 2.33)</li>
+        <li>99% → 2.576 (≈ 2.58)</li>
+      </ul>
+
+      <div class="tabs">
+        <div class="tab-buttons" data-tab-group="ch6">
+          <button class="tab-btn active" data-target="ch6-reminders">Key Reminders</button>
+          <button class="tab-btn" data-target="ch6-traps">Common Traps</button>
+        </div>
+        <div class="tab-panel active" id="ch6-reminders">
+          <ul>
+            <li>invNorm → z*</li>
+            <li>invT → t*</li>
+            <li>Proportion uses z*</li>
+            <li>Answer format: (lower, upper)</li>
+          </ul>
+        </div>
+        <div class="tab-panel" id="ch6-traps">
+          <ul>
+            <li>Using <strong>t*</strong> instead of <strong>z*</strong> for proportions</li>
+            <li>Forgetting to convert the confidence level to <strong>α</strong></li>
+            <li>Forgetting to convert percentages to decimals</li>
+            <li>Rounding too early → affects the final bounds</li>
+            <li>Identifying the wrong area or the wrong tail for the critical value</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Summary of Core Problem Types</h3>
+      <ul>
+        <li>Z-confidence interval</li>
+        <li>Proportion confidence interval</li>
+        <li>Find critical value</li>
+        <li>Interpret confidence level</li>
+        <li>Required sample size</li>
+      </ul>
+    </div>
+
+  </div>
+  <script>
+    document.querySelectorAll('[data-tab-group]').forEach(group => {
+      const buttons = group.querySelectorAll('.tab-btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabs = group.parentElement;
+          const target = button.getAttribute('data-target');
+          buttons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          tabs.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+          tabs.querySelector('#' + target).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
